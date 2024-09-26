@@ -1,7 +1,8 @@
 const mongoose=require('mongoose');
-const post=require('./post')
-
-mongoose.connect("mongodb://127.0.0.1:27017/blogApp")
+const post=require('./post');
+const { config } = require('dotenv');
+config();
+mongoose.connect(process.env.mongoDBURL);
 
 const userSchema=mongoose.Schema({
     username:String,
